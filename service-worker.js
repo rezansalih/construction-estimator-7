@@ -56,7 +56,8 @@ self.addEventListener('fetch', event => {
         return fetch(event.request).then(
           response => {
             // Check if we received a valid response
-            if(!response || response.status !== 200 || response.type !== 'basic' && response.type !== 'cors') {
+            // CDNs often return 'opaque' responses (status 0) when requested without CORS headers.
+            if(!response || (response.status !== 200 && response.type !== 'opaque')) {
               return response;
             }
 
