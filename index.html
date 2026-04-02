@@ -2300,7 +2300,7 @@
                                 <div class="result-item flex items-center gap-2"><i data-lucide="circle-dollar-sign"></i><span><strong class="font-semibold block">${T.cementCost}</strong> ${currency}${totalCementCost.toFixed(2)}</span></div>
                                 <div class="result-item flex items-center gap-2"><i data-lucide="circle-dollar-sign"></i><span><strong class="font-semibold block">${T.sandCost}</strong> ${currency}${totalSandCost.toFixed(2)}</span></div>
                                 <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="circle-dollar-sign"></i><span><strong class="font-semibold block">${T.aggregateCost}</strong> ${currency}${totalAggregateCost.toFixed(2)}</span></div>
-                                <div class="col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
+                                <div class="sm:col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
                                     <strong class="font-bold text-lg header-title">${T.totalCost} ${currency}${totalCost.toFixed(2)}</strong>
                                 </div>
                              </div>
@@ -2431,11 +2431,11 @@
                     costResultsHTML = `
                         <div class="result-item flex items-center gap-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.blockCost}</strong> ${currency}${totalBlockCost.toFixed(2)}</span></div>
                         <div class="result-item flex items-center gap-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.cementCost}</strong> ${currency}${totalCementCost.toFixed(2)}</span></div>
-                        <div class="result-item flex items-center gap-2 col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.sandCost}</strong> ${currency}${totalSandCost.toFixed(2)}</span></div>
+                        <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.sandCost}</strong> ${currency}${totalSandCost.toFixed(2)}</span></div>
                     `;
                 } else {
                     costResultsHTML = `
-                        <div class="result-item flex items-center gap-2 col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.blockCost}</strong> ${currency}${totalBlockCost.toFixed(2)}</span></div>
+                        <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.blockCost}</strong> ${currency}${totalBlockCost.toFixed(2)}</span></div>
                     `;
                 }
 
@@ -2470,7 +2470,7 @@
                                      </div>
                                  </div>
 
-                                <div class="col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
+                                <div class="sm:col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
                                      <strong class="font-bold text-lg header-title">${T.totalCost} ${currency}${totalCost.toFixed(2)}</strong>
                                  </div>
                             </div>
@@ -2598,16 +2598,16 @@
                     mortarResultsHTML = `
                         <div class="result-item flex items-center gap-2"><i data-lucide="blending"></i><span><strong class="font-semibold block">${T.mortarVolume}</strong> ${mortarVolume.toFixed(3)} m³</span></div>
                         <div class="result-item flex items-center gap-2"><i data-lucide="shopping-bag"></i><span><strong class="font-semibold block">${T.cementBags}</strong> ${cementBags}</span></div>
-                        <div class="result-item flex items-center gap-2 col-span-2"><i data-lucide="waves"></i><span><strong class="font-semibold block">${T.sand}</strong> ${sandVolume.toFixed(3)} m³</span></div>
+                        <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="waves"></i><span><strong class="font-semibold block">${T.sand}</strong> ${sandVolume.toFixed(3)} m³</span></div>
                     `;
                     costResultsHTML = `
                         <div class="result-item flex items-center gap-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.brickCost}</strong> ${currency}${totalBrickCost.toFixed(2)}</span></div>
                         <div class="result-item flex items-center gap-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.cementCost}</strong> ${currency}${totalCementCost.toFixed(2)}</span></div>
-                        <div class="result-item flex items-center gap-2 col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.sandCost}</strong> ${currency}${totalSandCost.toFixed(2)}</span></div>
+                        <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.sandCost}</strong> ${currency}${totalSandCost.toFixed(2)}</span></div>
                     `;
                 } else {
                     costResultsHTML = `
-                        <div class="result-item flex items-center gap-2 col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.brickCost}</strong> ${currency}${totalBrickCost.toFixed(2)}</span></div>
+                        <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.brickCost}</strong> ${currency}${totalBrickCost.toFixed(2)}</span></div>
                     `;
                 }
                 
@@ -2642,7 +2642,7 @@
                                     </div>
                                  </div>
                                 
-                                 <div class="col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
+                                 <div class="sm:col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
                                      <strong class="font-bold text-lg header-title">${T.totalCost} ${currency}${totalCost.toFixed(2)}</strong>
                                  </div>
                              </div>
@@ -3053,3 +3053,4 @@
     </script>
 </body>
 </html>
+
