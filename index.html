@@ -2278,7 +2278,7 @@
                     
                     if(formworkArea > 0){
                         additionalResultsHTML = `
-                            <div class="result-item flex items-center gap-2 sm:col-span-2 text-start">
+                            <div class="result-item flex items-center gap-2 col-span-2 text-start">
                                 <i data-lucide="square"></i>
                                 <span><strong class="font-semibold block">${formworkLabel}</strong> ${formworkArea.toFixed(2)} m²</span>
                             </div>`;
@@ -2311,8 +2311,8 @@
                                 ${additionalResultsHTML}
                                 <div class="result-item flex items-center gap-2"><i data-lucide="circle-dollar-sign"></i><span><strong class="font-semibold block">${T.cementCost}</strong> ${currency}${totalCementCost.toFixed(2)}</span></div>
                                 <div class="result-item flex items-center gap-2"><i data-lucide="circle-dollar-sign"></i><span><strong class="font-semibold block">${T.sandCost}</strong> ${currency}${totalSandCost.toFixed(2)}</span></div>
-                                <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="circle-dollar-sign"></i><span><strong class="font-semibold block">${T.aggregateCost}</strong> ${currency}${totalAggregateCost.toFixed(2)}</span></div>
-                                <div class="sm:col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
+                                <div class="result-item flex items-center gap-2 col-span-2"><i data-lucide="circle-dollar-sign"></i><span><strong class="font-semibold block">${T.aggregateCost}</strong> ${currency}${totalAggregateCost.toFixed(2)}</span></div>
+                                <div class="col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
                                     <strong class="font-bold text-lg header-title">${T.totalCost} ${currency}${totalCost.toFixed(2)}</strong>
                                 </div>
                              </div>
@@ -2443,11 +2443,11 @@
                     costResultsHTML = `
                         <div class="result-item flex items-center gap-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.blockCost}</strong> ${currency}${totalBlockCost.toFixed(2)}</span></div>
                         <div class="result-item flex items-center gap-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.cementCost}</strong> ${currency}${totalCementCost.toFixed(2)}</span></div>
-                        <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.sandCost}</strong> ${currency}${totalSandCost.toFixed(2)}</span></div>
+                        <div class="result-item flex items-center gap-2 col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.sandCost}</strong> ${currency}${totalSandCost.toFixed(2)}</span></div>
                     `;
                 } else {
                     costResultsHTML = `
-                        <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.blockCost}</strong> ${currency}${totalBlockCost.toFixed(2)}</span></div>
+                        <div class="result-item flex items-center gap-2 col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.blockCost}</strong> ${currency}${totalBlockCost.toFixed(2)}</span></div>
                     `;
                 }
 
@@ -2474,15 +2474,15 @@
                                  
                                  ${mortarResultsHTML}
 
-                                 <div class="result-item flex items-center gap-2 sm:col-span-2 text-start"><i data-lucide="scan"></i><span><strong class="font-semibold block">${T.totalOpeningVolume}</strong> ${totalOpeningVolumeForDisplay}</span></div>
+                                 <div class="result-item flex items-center gap-2 col-span-2 text-start"><i data-lucide="scan"></i><span><strong class="font-semibold block">${T.totalOpeningVolume}</strong> ${totalOpeningVolumeForDisplay}</span></div>
                                
-                                <div class="sm:col-span-2 mt-2 pt-2 border-t border-gray-700">
+                                <div class="col-span-2 mt-2 pt-2 border-t border-gray-700">
                                      <div class="grid grid-cols-2 gap-2 text-start">
                                         ${costResultsHTML}
                                      </div>
                                  </div>
 
-                                <div class="sm:col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
+                                <div class="col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
                                      <strong class="font-bold text-lg header-title">${T.totalCost} ${currency}${totalCost.toFixed(2)}</strong>
                                  </div>
                             </div>
@@ -2610,16 +2610,16 @@
                     mortarResultsHTML = `
                         <div class="result-item flex items-center gap-2"><i data-lucide="blending"></i><span><strong class="font-semibold block">${T.mortarVolume}</strong> ${mortarVolume.toFixed(3)} m³</span></div>
                         <div class="result-item flex items-center gap-2"><i data-lucide="shopping-bag"></i><span><strong class="font-semibold block">${T.cementBags}</strong> ${cementBags}</span></div>
-                        <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="waves"></i><span><strong class="font-semibold block">${T.sand}</strong> ${sandVolume.toFixed(3)} m³</span></div>
+                        <div class="result-item flex items-center gap-2 col-span-2"><i data-lucide="waves"></i><span><strong class="font-semibold block">${T.sand}</strong> ${sandVolume.toFixed(3)} m³</span></div>
                     `;
                     costResultsHTML = `
                         <div class="result-item flex items-center gap-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.brickCost}</strong> ${currency}${totalBrickCost.toFixed(2)}</span></div>
                         <div class="result-item flex items-center gap-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.cementCost}</strong> ${currency}${totalCementCost.toFixed(2)}</span></div>
-                        <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.sandCost}</strong> ${currency}${totalSandCost.toFixed(2)}</span></div>
+                        <div class="result-item flex items-center gap-2 col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.sandCost}</strong> ${currency}${totalSandCost.toFixed(2)}</span></div>
                     `;
                 } else {
                     costResultsHTML = `
-                        <div class="result-item flex items-center gap-2 sm:col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.brickCost}</strong> ${currency}${totalBrickCost.toFixed(2)}</span></div>
+                        <div class="result-item flex items-center gap-2 col-span-2"><i data-lucide="wallet"></i><span><strong class="font-semibold block">${T.brickCost}</strong> ${currency}${totalBrickCost.toFixed(2)}</span></div>
                     `;
                 }
                 
@@ -2646,15 +2646,15 @@
                                  
                                  ${mortarResultsHTML}
 
-                                 <div class="result-item flex items-center gap-2 sm:col-span-2 text-start"><i data-lucide="scan"></i><span><strong class="font-semibold block">${T.totalOpeningVolume}</strong> ${totalOpeningVolumeForDisplay}</span></div>
+                                 <div class="result-item flex items-center gap-2 col-span-2 text-start"><i data-lucide="scan"></i><span><strong class="font-semibold block">${T.totalOpeningVolume}</strong> ${totalOpeningVolumeForDisplay}</span></div>
                                 
-                                 <div class="sm:col-span-2 mt-2 pt-2 border-t border-gray-700">
+                                 <div class="col-span-2 mt-2 pt-2 border-t border-gray-700">
                                      <div class="grid grid-cols-2 gap-2 text-start">
                                          ${costResultsHTML}
                                     </div>
                                  </div>
                                 
-                                 <div class="sm:col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
+                                 <div class="col-span-2 text-center mt-2 pt-2 border-t border-gray-700 total-cost-print">
                                      <strong class="font-bold text-lg header-title">${T.totalCost} ${currency}${totalCost.toFixed(2)}</strong>
                                  </div>
                              </div>
@@ -2900,7 +2900,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-start">
                                 <div class="result-item"><span><strong class="font-semibold block">${T.numberOfBars} (Ø${results.diameterLen}mm)</strong> ${results.barsAlongLength}</span></div>
                                 <div class="result-item"><span><strong class="font-semibold block">${T.unitWeight}</strong> ${results.unitWeightLen.toFixed(3)} kg/m</span></div>
-                                <div class="result-item sm:col-span-2"><span><strong class="font-semibold block">${T.totalWeight}</strong> ${(results.weightAlongLength * wastageFactor).toFixed(2)} kg (w/ wastage)</span></div>
+                                <div class="result-item col-span-2"><span><strong class="font-semibold block">${T.totalWeight}</strong> ${(results.weightAlongLength * wastageFactor).toFixed(2)} kg (w/ wastage)</span></div>
                             </div>
                         </div>
                         <div class="mb-2">
@@ -2908,7 +2908,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-start">
                                 <div class="result-item"><span><strong class="font-semibold block">${T.numberOfBars} (Ø${results.diameterWid}mm)</strong> ${results.barsAlongWidth}</span></div>
                                 <div class="result-item"><span><strong class="font-semibold block">${T.unitWeight}</strong> ${results.unitWeightWid.toFixed(3)} kg/m</span></div>
-                                <div class="result-item sm:col-span-2"><span><strong class="font-semibold block">${T.totalWeight}</strong> ${(results.weightAlongWidth * wastageFactor).toFixed(2)} kg (w/ wastage)</span></div>
+                                <div class="result-item col-span-2"><span><strong class="font-semibold block">${T.totalWeight}</strong> ${(results.weightAlongWidth * wastageFactor).toFixed(2)} kg (w/ wastage)</span></div>
                             </div>
                         </div>
                         <div class="border-t border-gray-700 pt-2 total-cost-print text-start">
@@ -2926,7 +2926,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                 <div class="result-item"><span><strong class="font-semibold block">${T.numberOfBars} (Ø${results.mainBars.diameter}mm)</strong> ${results.mainBars.numberOfBars}</span></div>
                                 <div class="result-item"><span><strong class="font-semibold block">${T.unitWeight}</strong> ${results.mainBars.unitWeight.toFixed(3)} kg/m</span></div>
-                                <div class="result-item sm:col-span-2"><span><strong class="font-semibold block">${T.totalWeight}</strong> ${results.mainBars.totalWeight.toFixed(2)} kg (w/ wastage)</span></div>
+                                <div class="result-item col-span-2"><span><strong class="font-semibold block">${T.totalWeight}</strong> ${results.mainBars.totalWeight.toFixed(2)} kg (w/ wastage)</span></div>
                             </div>
                         </div>`;
                     
@@ -2937,7 +2937,7 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                     <div class="result-item"><span><strong class="font-semibold block">${T.numberOfStirrups} (Ø${results.stirrups.diameter}mm)</strong> ${results.stirrups.numberOfStirrups}</span></div>
                                     <div class="result-item"><span><strong class="font-semibold block">${T.singleStirrupLength}</strong> ${results.stirrups.singleLength.toFixed(2)} m</span></div>
-                                    <div class="result-item sm:col-span-2"><span><strong class="font-semibold block">${T.totalWeight}</strong> ${results.stirrups.totalWeight.toFixed(2)} kg (w/ wastage)</span></div>
+                                    <div class="result-item col-span-2"><span><strong class="font-semibold block">${T.totalWeight}</strong> ${results.stirrups.totalWeight.toFixed(2)} kg (w/ wastage)</span></div>
                                 </div>
                             </div>`;
                     }
@@ -2958,7 +2958,7 @@
                     if (results.totalLength) resultsHTML += `<div class="result-item"><span><strong class="font-semibold block">${T.totalLength} (incl. lap)</strong> ${results.totalLength.toFixed(2)} m</span></div>`;
                     if (results.totalWeight) resultsHTML += `<div class="result-item"><span><strong class="font-semibold block">${T.totalWeight} (w/ wastage)</strong> ${results.totalWeight.toFixed(2)} kg</span></div>`;
                     if (includeLap && results.totalSplices > 0) resultsHTML += lapSpliceSummaryHTML;
-                    if (results.totalCost !== undefined) resultsHTML += `<div class="result-item sm:col-span-2 total-cost-print"><span><strong class="font-semibold block">${T.totalCost}</strong> ${currency}${results.totalCost.toFixed(2)}</span></div>`;
+                    if (results.totalCost !== undefined) resultsHTML += `<div class="result-item col-span-2 total-cost-print"><span><strong class="font-semibold block">${T.totalCost}</strong> ${currency}${results.totalCost.toFixed(2)}</span></div>`;
                     resultsHTML += `</div>`;
                 }
                 
@@ -3065,5 +3065,6 @@
     </script>
 </body>
 </html>
+
 
 
