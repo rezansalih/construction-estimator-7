@@ -55,7 +55,7 @@
         html[lang="ku"] button,
         html[lang="ks"] button,
         html[lang="ar"] button {
-            font-family: 'Noto Sans Arabic', sans-serif !important;
+            font-family: 'Noto Sans Arabic', Tahoma, Arial, sans-serif !important;
         }
 
         /* --- Dark Mode (Default) --- */
@@ -2024,7 +2024,10 @@
                         #print-area th { background-color: #f3f4f6 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; font-weight: bold; }
                         #print-area tr:nth-child(even) td { background-color: #f9fafb !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
                         #print-area tfoot td { background-color: #e0e7ff !important; font-weight: bold !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-                        #print-area .result-item { background-color: #f9fafb !important; border: 1px solid #e5e7eb !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; margin-bottom: 0.5rem; padding: 0.5rem; border-radius: 0.375rem; }
+                        #print-area .result-item { background-color: #f9fafb !important; border: 1px solid #e5e7eb !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; margin-bottom: 0.75rem; padding: 0.75rem; border-radius: 0.375rem; width: 100% !important; display: block !important; box-sizing: border-box; page-break-inside: avoid; }
+                        #print-area .result-item i { display: inline-block; margin-inline-end: 0.5rem; vertical-align: middle; }
+                        #print-area .result-item span { display: inline-block; vertical-align: middle; }
+                        #print-area .grid { display: block !important; width: 100% !important; }
                         #print-area h1 { color: #111827 !important; border-bottom: 2px solid #e5e7eb; padding-bottom: 1rem; margin-bottom: 2rem; font-size: 2rem; font-weight: bold; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
                         #print-area h3 { margin-top: 0; }
                         #print-area .header-title { font-weight: bold; margin-bottom: 0.5rem; }
