@@ -98,7 +98,18 @@
         .header-subtitle { color: #9ca3af; text-align: start; }
         .btn-secondary { background-color: #374151; color: #d1d5db; }
         .btn-secondary:hover { background-color: #4b5563; }
-        .result-item { background-color: rgba(55, 65, 81, 0.6); border-radius: 0.5rem; padding: 0.5rem; margin-bottom: 0.5rem; border: 1px solid #4b5563; text-align: start; }
+        .result-item { 
+            background-color: rgba(55, 65, 81, 0.6); 
+            border-radius: 0.5rem; 
+            padding: 0.5rem 0.5rem; 
+            margin-bottom: 0.25rem; 
+            border: 1px solid rgba(75, 85, 99, 0.6); 
+            text-align: start; 
+            align-items: flex-start !important; 
+        }
+        .result-item i { flex-shrink: 0; margin-top: 0.1rem; opacity: 0.8; width: 1.1rem; height: 1.1rem; }
+        .result-item > span { flex: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; }
+        .result-item strong { font-size: 0.72rem; color: #9ca3af; line-height: 1.1; margin-bottom: 0.15rem; display: block; }
         .openings-toggle { cursor: pointer; user-select: none; transition: color 0.2s ease; }
         .openings-toggle:hover { color: #a5b4fc; }
         .openings-container { overflow: hidden; transition: max-height 0.4s ease-in-out; }
@@ -128,6 +139,7 @@
         .light-mode #error-box { background-color: #fee2e2; border-color: #fca5a5; color: #b91c1c; }
         .light-mode .border-gray-700 { border-color: #d1d5db; }
         .light-mode .result-item { background-color: #f3f4f6; border: 1px solid #e5e7eb; }
+        .light-mode .result-item strong { color: #6b7280; }
         .light-mode .opening-item { border-inline-start-color: #4f46e5; }
         
         /* Light mode table base adjustments */
@@ -381,7 +393,7 @@
         <div id="global-settings-wrapper" class="hidden">
             <div class="card p-4 rounded-lg mb-4">
                 <h2 class="text-lg font-semibold mb-4 header-title" data-lang="globalSettings">Global Settings</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-start">
+                <div class="grid grid-cols-2 gap-2 text-start">
                      <div>
                         <label for="wastage" class="block text-sm font-medium mb-1" data-lang="wastageLabel">General Material Wastage (%)</label>
                         <input type="number" inputmode="decimal" id="wastage" value="5" min="0" max="50" class="pro-input">
@@ -460,7 +472,7 @@
                     <!-- Step 1: Dimensions -->
                     <div class="card p-3 rounded-lg space-y-3 text-start">
                         <h3 class="text-base font-semibold header-title border-b border-gray-700 pb-2" data-lang="step1Dimensions">1. Dimensions & Quantity</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="grid grid-cols-2 gap-2">
                             <div>
                                 <label for="concrete-type" class="block text-sm font-medium" data-lang="appType">Concrete Element</label>
                                 <select id="concrete-type" class="pro-input">
@@ -475,7 +487,7 @@
                             </div>
                         </div>
 
-                        <div id="concrete-dims-inputs" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div id="concrete-dims-inputs" class="grid grid-cols-2 gap-2">
                             <div>
                                 <label for="concrete-length" class="block text-sm font-medium" data-lang="length">Length (m)</label>
                                 <input type="number" inputmode="decimal" id="concrete-length" min="0" step="0.01" class="pro-input">
@@ -605,7 +617,7 @@
                     <div class="space-y-3">
                         <div id="block-dims-inputs" class="card p-3 rounded-lg space-y-2 text-start">
                             <h3 class="text-base font-semibold header-title border-b border-gray-700 pb-2" data-lang="step1Dimensions">1. Wall Dimensions</h3>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="grid grid-cols-2 gap-2">
                                 <div>
                                     <label class="block text-sm font-medium" data-lang="wallLength">Wall Length (m)</label>
                                     <input type="number" inputmode="decimal" id="block-wall-length" min="0" step="0.01" class="pro-input">
@@ -625,7 +637,7 @@
                                     <span data-lang="deductOpenings" class="font-semibold">Deduct Openings (Optional)</span>
                                 </div>
                                 <div class="openings-container hidden" id="block-openings-container">
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2">
+                                    <div class="grid grid-cols-2 gap-2 mb-2">
                                         <div>
                                             <label class="block text-sm font-medium" data-lang="numWindows">Number of Windows</label>
                                             <input type="number" inputmode="decimal" id="block-num-windows" min="0" class="pro-input" value="0">
@@ -672,7 +684,7 @@
                                     <span class="ms-2" data-lang="includeMortar">Calculate with Mortar</span>
                                 </label>
                            </div>
-                           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+                           <div class="grid grid-cols-2 gap-2 mt-2">
                                <div>
                                    <label class="block text-sm font-medium" data-lang="mortarThickness">Mortar Thickness (cm)</label>
                                    <input type="number" inputmode="decimal" id="block-mortar-thickness" value="1.0" min="0" step="0.1" class="pro-input">
@@ -695,7 +707,7 @@
 
                         <div class="card p-3 rounded-lg space-y-2 text-start">
                             <h3 class="text-base font-semibold header-title border-b border-gray-700 pb-2" data-lang="step3Cost">3. Costing (Optional)</h3>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="grid grid-cols-2 gap-2">
                                <div class="sm:col-span-2">
                                    <label class="block text-sm font-medium" data-lang="costPerBlock">Cost per Block</label>
                                    <input type="number" inputmode="decimal" id="block-cost" min="0" step="0.01" class="pro-input">
@@ -774,7 +786,7 @@
                     <div class="space-y-3">
                         <div id="brick-dims-inputs" class="card p-3 rounded-lg space-y-2 text-start">
                             <h3 class="text-base font-semibold header-title border-b border-gray-700 pb-2" data-lang="step1Dimensions">1. Wall Dimensions</h3>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="grid grid-cols-2 gap-2">
                                 <div>
                                     <label class="block text-sm font-medium" data-lang="wallLength">Wall Length (m)</label>
                                     <input type="number" inputmode="decimal" id="brick-wall-length" min="0" step="0.01" class="pro-input">
@@ -794,7 +806,7 @@
                                     <span data-lang="deductOpenings" class="font-semibold">Deduct Openings (Optional)</span>
                                 </div>
                                 <div class="openings-container hidden" id="brick-openings-container">
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2">
+                                    <div class="grid grid-cols-2 gap-2 mb-2">
                                         <div>
                                             <label class="block text-sm font-medium" data-lang="numWindows">Number of Windows</label>
                                             <input type="number" inputmode="decimal" id="brick-num-windows" min="0" class="pro-input" value="0">
@@ -842,7 +854,7 @@
                                     <span class="ms-2" data-lang="includeMortarBricks">Calculate with Mortar</span>
                                 </label>
                             </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+                            <div class="grid grid-cols-2 gap-2 mt-2">
                                 <div>
                                     <label class="block text-sm font-medium" data-lang="mortarThickness">Mortar Thickness (cm)</label>
                                     <input type="number" inputmode="decimal" id="brick-mortar-thickness" value="1.0" min="0" step="0.1" class="pro-input">
@@ -865,7 +877,7 @@
                         
                         <div class="card p-3 rounded-lg space-y-2 text-start">
                             <h3 class="text-base font-semibold header-title border-b border-gray-700 pb-2" data-lang="step3Cost">3. Costing (Optional)</h3>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="grid grid-cols-2 gap-2">
                                 <div class="sm:col-span-2">
                                     <label class="block text-sm font-medium" data-lang="costPerBrick">Cost per Brick</label>
                                     <input type="number" inputmode="decimal" id="brick-cost" min="0" step="0.01" class="pro-input">
@@ -938,7 +950,7 @@
                                 <span class="font-semibold text-sm" data-lang="includeLapSplice">Include Lap Splice Calculation</span>
                             </label>
                             <div id="steel-lap-splice-details" class="hidden space-y-3 mt-3">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="grid grid-cols-2 gap-2">
                                     <div>
                                         <label class="block text-sm font-medium" data-lang="standardBarLength">Standard Bar Length (m)</label>
                                         <input type="number" inputmode="decimal" id="steel-standard-bar-length" class="pro-input w-full" value="12">
@@ -981,7 +993,7 @@
                                 </label>
                             </div>
                     
-                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                             <div class="grid grid-cols-2 gap-2">
                                 <div>
                                     <label class="block text-sm font-medium" data-lang="footingLength">Footing Length (m)</label>
                                     <input type="number" inputmode="decimal" id="footing-length" class="pro-input w-full">
@@ -995,7 +1007,7 @@
                              <div id="footing-spacing-inputs">
                                  <div class="border-t border-gray-700 pt-2">
                                     <p class="text-sm font-medium mb-1" data-lang="lengthwiseBars">Bars parallel to Length</p>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                                    <div class="grid grid-cols-2 gap-2 items-end">
                                         <div>
                                             <label class="block text-sm font-medium" data-lang="spacing">Spacing (mm)</label>
                                             <input type="number" inputmode="decimal" id="footing-spacing-len" class="pro-input w-full">
@@ -1012,7 +1024,7 @@
                                  </div>
                                 <div class="border-t border-gray-700 pt-2 mt-2">
                                      <p class="text-sm font-medium mb-1" data-lang="widthwiseBars">Bars parallel to Width</p>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                                    <div class="grid grid-cols-2 gap-2 items-end">
                                         <div>
                                             <label class="block text-sm font-medium" data-lang="spacing">Spacing (mm)</label>
                                             <input type="number" inputmode="decimal" id="footing-spacing-wid" class="pro-input w-full">
@@ -1032,7 +1044,7 @@
                             <div id="footing-number-inputs" class="hidden">
                                 <div class="border-t border-gray-700 pt-2">
                                      <p class="text-sm font-medium mb-1" data-lang="lengthwiseBars">Bars parallel to Length</p>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                                    <div class="grid grid-cols-2 gap-2 items-end">
                                          <div>
                                              <label class="block text-sm font-medium" data-lang="numberOfBars">Number of Bars</label>
                                              <input type="number" inputmode="decimal" id="footing-number-len" class="pro-input w-full">
@@ -1049,7 +1061,7 @@
                                  </div>
                                 <div class="border-t border-gray-700 pt-2 mt-2">
                                      <p class="text-sm font-medium mb-1" data-lang="widthwiseBars">Bars parallel to Width</p>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                                    <div class="grid grid-cols-2 gap-2 items-end">
                                          <div>
                                              <label class="block text-sm font-medium" data-lang="numberOfBars">Number of Bars</label>
                                              <input type="number" inputmode="decimal" id="footing-number-wid" class="pro-input w-full">
@@ -1080,7 +1092,7 @@
                                 </label>
                             </div>
                             
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="grid grid-cols-2 gap-2">
                                 <div>
                                     <label class="block text-sm font-medium" data-lang="slabLength">Slab Length (m)</label>
                                     <input type="number" inputmode="decimal" id="slab-length" class="pro-input w-full">
@@ -1094,7 +1106,7 @@
                              <div id="slab-spacing-inputs">
                                  <div class="border-t border-gray-700 pt-2">
                                      <p class="text-sm font-medium mb-1" data-lang="lengthwiseBars">Bars parallel to Length</p>
-                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                                     <div class="grid grid-cols-2 gap-2 items-end">
                                          <div>
                                              <label class="block text-sm font-medium" data-lang="spacing">Spacing (mm)</label>
                                              <input type="number" inputmode="decimal" id="slab-spacing-len" class="pro-input w-full">
@@ -1111,7 +1123,7 @@
                                  </div>
                                 <div class="border-t border-gray-700 pt-2 mt-2">
                                      <p class="text-sm font-medium mb-1" data-lang="widthwiseBars">Bars parallel to Width</p>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                                    <div class="grid grid-cols-2 gap-2 items-end">
                                          <div>
                                              <label class="block text-sm font-medium" data-lang="spacing">Spacing (mm)</label>
                                              <input type="number" inputmode="decimal" id="slab-spacing-wid" class="pro-input w-full">
@@ -1131,7 +1143,7 @@
                              <div id="slab-number-inputs" class="hidden">
                                 <div class="border-t border-gray-700 pt-2">
                                      <p class="text-sm font-medium mb-1" data-lang="lengthwiseBars">Bars parallel to Length</p>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                                    <div class="grid grid-cols-2 gap-2 items-end">
                                          <div>
                                              <label class="block text-sm font-medium" data-lang="numberOfBars">Number of Bars</label>
                                              <input type="number" inputmode="decimal" id="slab-number-len" class="pro-input w-full">
@@ -1148,7 +1160,7 @@
                                  </div>
                                  <div class="border-t border-gray-700 pt-2 mt-2">
                                      <p class="text-sm font-medium mb-1" data-lang="widthwiseBars">Bars parallel to Width</p>
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                                    <div class="grid grid-cols-2 gap-2 items-end">
                                          <div>
                                              <label class="block text-sm font-medium" data-lang="numberOfBars">Number of Bars</label>
                                              <input type="number" inputmode="decimal" id="slab-number-wid" class="pro-input w-full">
@@ -1168,7 +1180,7 @@
                 
                         <div id="steel-beam-inputs" class="hidden mt-2 space-y-3">
                             <p class="text-base font-semibold header-title" data-lang="mainBars">Main Bars</p>
-                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                             <div class="grid grid-cols-2 gap-2">
                                  <div>
                                      <label class="block text-sm font-medium" data-lang="beamLength">Beam Length (m)</label>
                                      <input type="number" inputmode="decimal" id="beam-length" class="pro-input w-full">
@@ -1193,7 +1205,7 @@
                                      <span class="font-semibold header-title" data-lang="includeStirrups">Include Stirrups Calculation</span>
                                  </label>
                                  <div id="beam-stirrups-details" class="hidden space-y-3">
-                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                                     <div class="grid grid-cols-2 gap-2 items-end">
                                          <div>
                                              <label class="block text-sm font-medium" data-lang="beamWidthDim">Beam Width (mm)</label>
                                              <input type="number" inputmode="decimal" id="beam-width-dim" class="pro-input w-full">
@@ -1225,7 +1237,7 @@
 
                          <div id="steel-column-inputs" class="hidden mt-2 space-y-3">
                             <p class="text-base font-semibold header-title" data-lang="mainBars">Vertical Bars</p>
-                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                             <div class="grid grid-cols-2 gap-2">
                                   <div>
                                       <label class="block text-sm font-medium" data-lang="columnHeight">Column Height (m)</label>
                                       <input type="number" inputmode="decimal" id="column-height" class="pro-input w-full">
@@ -1250,7 +1262,7 @@
                                      <span class="font-semibold header-title" data-lang="includeStirrups">Include Ties/Stirrups Calculation</span>
                                  </label>
                                  <div id="column-stirrups-details" class="hidden space-y-3">
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                                    <div class="grid grid-cols-2 gap-2 items-end">
                                          <div>
                                              <label class="block text-sm font-medium" data-lang="columnWidthDim">Column Width (mm)</label>
                                              <input type="number" inputmode="decimal" id="column-width-dim" class="pro-input w-full">
@@ -1281,7 +1293,7 @@
                          </div>
 
                          <div id="steel-one-way-inputs" class="hidden mt-2 space-y-3">
-                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
+                             <div class="grid grid-cols-2 gap-2 items-end">
                                  <div>
                                      <label class="block text-sm font-medium" data-lang="distLength">Distribution Length (m)</label>
                                      <input type="number" inputmode="decimal" id="one-way-dist-length" class="pro-input w-full">
@@ -1364,7 +1376,7 @@
                     
                     <div class="card p-3 rounded-lg space-y-3 text-start">
                         <h3 class="text-base font-semibold header-title border-b border-gray-700 pb-2" data-lang="step1Excavation">1. Excavation Details</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="grid grid-cols-2 gap-2">
                             <div>
                                 <label for="earthwork-length" class="block text-sm font-medium" data-lang="length">Length (m)</label>
                                 <input type="number" inputmode="decimal" id="earthwork-length" min="0" step="0.01" class="pro-input">
@@ -2291,7 +2303,7 @@
                             </div>
                         </div>
                          <div class="result-content">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-start">
+                            <div class="grid grid-cols-2 gap-2 text-start">
                                 <div class="result-item flex items-center gap-2"><i data-lucide="cuboid"></i><span><strong class="font-semibold block">${T.totalVolume}</strong> ${wetVolume.toFixed(2)} m³</span></div>
                                 <div class="result-item flex items-center gap-2"><i data-lucide="shopping-bag"></i><span><strong class="font-semibold block">${T.cementBags}</strong> ${cementBags}</span></div>
                                 <div class="result-item flex items-center gap-2"><i data-lucide="waves"></i><span><strong class="font-semibold block">${T.sand}</strong> ${sandVolume.toFixed(2)} m³</span></div>
@@ -2456,7 +2468,7 @@
                              </div>
                         </div>
                         <div class="result-content">
-                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-start">
+                             <div class="grid grid-cols-2 gap-2 text-start">
                                 <div class="result-item flex items-center gap-2"><i data-lucide="box-select"></i><span><strong class="font-semibold block">${T.totalWallVolume}</strong> ${totalWallVolume.toFixed(2)} m³</span></div>
                                 <div class="result-item flex items-center gap-2"><i data-lucide="table-2"></i><span><strong class="font-semibold block">${T.totalBlocks}</strong> ${blocksNeeded}</span></div>
                                  
@@ -2465,7 +2477,7 @@
                                  <div class="result-item flex items-center gap-2 sm:col-span-2 text-start"><i data-lucide="scan"></i><span><strong class="font-semibold block">${T.totalOpeningVolume}</strong> ${totalOpeningVolumeForDisplay}</span></div>
                                
                                 <div class="sm:col-span-2 mt-2 pt-2 border-t border-gray-700">
-                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-start">
+                                     <div class="grid grid-cols-2 gap-2 text-start">
                                         ${costResultsHTML}
                                      </div>
                                  </div>
@@ -2628,7 +2640,7 @@
                              </div>
                         </div>
                         <div class="result-content">
-                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-start">
+                             <div class="grid grid-cols-2 gap-2 text-start">
                                  <div class="result-item flex items-center gap-2"><i data-lucide="box-select"></i><span><strong class="font-semibold block">${T.totalWallVolume}</strong> ${totalWallVolume.toFixed(2)} m³</span></div>
                                 <div class="result-item flex items-center gap-2"><i data-lucide="grip-vertical"></i><span><strong class="font-semibold block">${T.totalBricks}</strong> ${bricksNeeded}</span></div>
                                  
@@ -2637,7 +2649,7 @@
                                  <div class="result-item flex items-center gap-2 sm:col-span-2 text-start"><i data-lucide="scan"></i><span><strong class="font-semibold block">${T.totalOpeningVolume}</strong> ${totalOpeningVolumeForDisplay}</span></div>
                                 
                                  <div class="sm:col-span-2 mt-2 pt-2 border-t border-gray-700">
-                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-start">
+                                     <div class="grid grid-cols-2 gap-2 text-start">
                                          ${costResultsHTML}
                                     </div>
                                  </div>
@@ -2940,7 +2952,7 @@
                             </div>
                         </div>`;
                 } else { 
-                    resultsHTML += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-start">`;
+                    resultsHTML += `<div class="grid grid-cols-2 gap-2 text-start">`;
                     if (results.numberOfBars) resultsHTML += `<div class="result-item"><span><strong class="font-semibold block">${T.numberOfBars}</strong> ${results.numberOfBars}</span></div>`;
                     if (results.unitWeight) resultsHTML += `<div class="result-item"><span><strong class="font-semibold block">${T.unitWeight}</strong> ${results.unitWeight.toFixed(3)} kg/m</span></div>`;
                     if (results.totalLength) resultsHTML += `<div class="result-item"><span><strong class="font-semibold block">${T.totalLength} (incl. lap)</strong> ${results.totalLength.toFixed(2)} m</span></div>`;
@@ -3009,7 +3021,7 @@
                             </div>
                         </div>
                         <div class="result-content">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-start">
+                            <div class="grid grid-cols-2 gap-2 text-start">
                                 <div class="result-item flex items-center gap-2">
                                     <i data-lucide="land-plot"></i>
                                     <span>
@@ -3053,4 +3065,5 @@
     </script>
 </body>
 </html>
+
 
