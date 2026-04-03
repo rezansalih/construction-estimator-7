@@ -374,6 +374,11 @@
                 </select>
                 
                 <div class="flex items-center space-x-2 sm:space-x-3">
+                    <!-- Export All Button -->
+                    <button id="export-all-pdf-btn" class="flex items-center justify-center p-2 rounded-full bg-gray-700/50 hover:bg-green-600/50 text-green-400 transition-all shadow-sm" title="Export All Materials to PDF">
+                        <i data-lucide="file-down" class="w-5 h-5"></i>
+                    </button>
+
                     <!-- History Button in Header -->
                     <button id="open-history-btn" class="flex items-center justify-center p-2 rounded-full bg-gray-700/50 hover:bg-indigo-600/50 text-indigo-300 transition-all shadow-sm" title="Calculation History">
                         <i data-lucide="clock" class="w-5 h-5"></i>
@@ -2177,6 +2182,54 @@
                     });
                 }
             });
+
+            const exportAllPdfBtn = document.getElementById('export-all-pdf-btn');
+            if (exportAllPdfBtn) {
+                exportAllPdfBtn.addEventListener('click', () => {
+                    const lang = localStorage.getItem('language') || 'en';
+                    const T = translations[lang];
+                    let printHTML = '';
+                    
+                    const tabsList = [
+                        { id: 'concrete', title: T.concreteTitle },
+                        { id: 'blocks', title: T.blocksTitle },
+                        { id: 'bricks', title: T.bricksTitle },
+                        { id: 'steel', title: T.steelTitle },
+                        { id: 'earthwork', title: T.earthworkTitle }
+                    ];
+
+                    let hasData = false;
+
+                    tabsList.forEach(tab => {
+                        const tableSection = document.getElementById(`${tab.id}-table-section`);
+                        if (tableSection && !tableSection.classList.contains('hidden')) {
+                            hasData = true;
+                            const clonedTable = tableSection.cloneNode(true);
+                            
+                            clonedTable.querySelectorAll('button').forEach(btn => btn.remove());
+                            clonedTable.querySelectorAll('.swipe-indicator').forEach(el => el.remove());
+                            
+                            clonedTable.querySelectorAll('.overflow-x-auto').forEach(el => {
+                                el.classList.remove('overflow-x-auto', 'custom-scrollbar');
+                            });
+                            
+                            printHTML += `
+                                <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid #e5e7eb; page-break-inside: avoid;">
+                                    <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">${tab.title}</h3>
+                                    ${clonedTable.innerHTML}
+                                </div>
+                            `;
+                        }
+                    });
+
+                    if (!hasData) {
+                        showError(T.noCalcsSaved || "No calculations to export. Please calculate first.");
+                        return;
+                    }
+
+                    exportToPDF(printHTML, T.exportProjectPdfTitle || "Project Materials Export");
+                });
+            }
 
             /* CALCULATORS */
             document.getElementById('calculate-concrete').addEventListener('click', () => {
