@@ -348,8 +348,8 @@
             </div>
             
             <div class="flex items-center gap-3 mt-3 sm:mt-0">
-                 <!-- Allowed Auto Width so Kurdî/Arabic fits properly without getting cut off -->
-                <select id="language-selector" class="pro-input text-sm w-auto min-w-[160px]">
+                 <!-- Language Selector - made smaller as requested -->
+                <select id="language-selector" class="pro-input text-xs w-auto min-w-[125px]" style="min-height:34px; padding:4px 8px;">
                     <option value="en">English</option>
                     <option value="ku">Kurdî (Badînî)</option>
                     <option value="ks">کوردی (سۆرانی)</option>
