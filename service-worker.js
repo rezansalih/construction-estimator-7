@@ -1,4 +1,4 @@
-const CACHE_NAME = 'estimator-v2';
+const CACHE_NAME = 'estimator-v3';
 
 // We will cache index.html, icons and also cache the external CDN resources so the app works offline.
 const urlsToCache = [
