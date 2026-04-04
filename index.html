@@ -384,6 +384,11 @@
                         <i data-lucide="clock" class="w-5 h-5"></i>
                     </button>
 
+                    <!-- Settings Button in Header -->
+                    <button id="open-settings-btn" class="flex items-center justify-center p-2 rounded-full bg-gray-700/50 hover:bg-gray-600/50 text-gray-300 transition-all shadow-sm" title="Global Settings">
+                        <i data-lucide="settings" class="w-5 h-5"></i>
+                    </button>
+
                     <i data-lucide="sun" class="text-yellow-400"></i>
                     <label for="theme-toggle" class="relative inline-flex items-center cursor-pointer">
                         <input type="checkbox" value="" id="theme-toggle" class="sr-only peer">
@@ -394,34 +399,6 @@
             </div>
         </header>
 
-        <!-- Wrapper for Global Settings -->
-        <div id="global-settings-wrapper" class="hidden">
-            <div class="card p-4 rounded-lg mb-4">
-                <h2 class="text-lg font-semibold mb-4 header-title" data-lang="globalSettings">Global Settings</h2>
-                <div class="grid grid-cols-2 gap-2 text-start">
-                     <div>
-                        <label for="wastage" class="block text-sm font-medium mb-1" data-lang="wastageLabel">General Material Wastage (%)</label>
-                        <input type="number" inputmode="decimal" id="wastage" value="5" min="0" max="50" class="pro-input">
-                     </div>
-                     <div>
-                        <label for="currency" class="block text-sm font-medium mb-1" data-lang="currencySymbol">Currency</label>
-                        <select id="currency" class="pro-input w-full">
-                            <option value="$">USD ($)</option>
-                            <option value="€">EUR (€)</option>
-                            <option value="£">GBP (£)</option>
-                            <option value="¥">JPY (¥)</option>
-                            <option value="د.ع" selected>IQD (د.ع)</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <input type="text" id="custom-currency" class="pro-input w-full mt-2 hidden">
-                    </div>
-                    <div class="sm:col-span-2">
-                        <label for="exchange-rate" class="block text-sm font-medium mb-1" data-lang="exchangeRateLabel">100 USD to IQD Rate</label>
-                        <input type="number" inputmode="decimal" id="exchange-rate" value="148000" min="0" class="pro-input w-full">
-                    </div>
-                 </div>
-            </div>
-        </div>
         
         <div>
             <!-- TABS -->
@@ -1455,6 +1432,44 @@
     </div>
 
     <!-- Modals -->
+    <div id="settings-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-4 hidden modal-overlay opacity-0">
+        <div class="card rounded-lg shadow-xl w-full max-w-md modal-content transform scale-95 flex flex-col max-h-[80vh]">
+            <div class="p-4 border-b border-gray-700 flex justify-between items-center shrink-0">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="settings" class="text-indigo-400"></i>
+                    <h3 class="text-lg font-semibold header-title" data-lang="globalSettings">Global Settings</h3>
+                </div>
+                <button id="close-settings-modal-btn" class="hover:text-red-500 transition-colors">
+                    <i data-lucide="x-circle"></i>
+                </button>
+            </div>
+            <div class="p-4 overflow-y-auto flex-grow custom-scrollbar">
+                <div class="grid grid-cols-2 gap-4 text-start">
+                     <div>
+                        <label for="wastage" class="block text-sm font-medium mb-1" data-lang="wastageLabel">General Material Wastage (%)</label>
+                        <input type="number" inputmode="decimal" id="wastage" value="5" min="0" max="50" class="pro-input">
+                     </div>
+                     <div>
+                        <label for="currency" class="block text-sm font-medium mb-1" data-lang="currencySymbol">Currency</label>
+                        <select id="currency" class="pro-input w-full">
+                            <option value="$">USD ($)</option>
+                            <option value="€">EUR (€)</option>
+                            <option value="£">GBP (£)</option>
+                            <option value="¥">JPY (¥)</option>
+                            <option value="د.ع" selected>IQD (د.ع)</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <input type="text" id="custom-currency" class="pro-input w-full mt-2 hidden">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="exchange-rate" class="block text-sm font-medium mb-1" data-lang="exchangeRateLabel">100 USD to IQD Rate</label>
+                        <input type="number" inputmode="decimal" id="exchange-rate" value="148000" min="0" class="pro-input w-full">
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
     <div id="history-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-4 hidden modal-overlay opacity-0">
         <div class="card rounded-lg shadow-xl w-full max-w-md modal-content transform scale-95 flex flex-col max-h-[80vh]">
             <div class="p-4 border-b border-gray-700 flex justify-between items-center shrink-0">
@@ -1683,7 +1698,6 @@
             const errorBox = document.getElementById('error-box');
             const errorMessage = document.getElementById('error-message');
             const closeErrorBtn = document.getElementById('close-error');
-            const globalSettingsWrapper = document.getElementById('global-settings-wrapper');
 
             function showError(message) {
                 errorMessage.textContent = message;
@@ -1704,21 +1718,9 @@
                     const activeTabContent = document.getElementById(tab.dataset.tab);
                     activeTabContent.classList.remove('hidden');
                     
-                    const placeholder = activeTabContent.querySelector('.global-settings-placeholder');
-                    if (placeholder && globalSettingsWrapper) {
-                        placeholder.appendChild(globalSettingsWrapper);
-                        globalSettingsWrapper.classList.remove('hidden');
-                    }
                     errorBox.classList.add('hidden');
                 });
             });
-
-            const activeTabIdOnInit = document.querySelector('.tab-btn.tab-active').dataset.tab;
-            const initialPlaceholder = document.querySelector(`#${activeTabIdOnInit} .global-settings-placeholder`);
-            if (initialPlaceholder && globalSettingsWrapper) {
-                initialPlaceholder.appendChild(globalSettingsWrapper);
-                globalSettingsWrapper.classList.remove('hidden');
-            }
 
             document.querySelectorAll('.reset-btn').forEach(button => {
                 button.addEventListener('click', () => {
@@ -1913,6 +1915,7 @@
             }
             
             const historyModal = document.getElementById('history-modal');
+            const settingsModal = document.getElementById('settings-modal');
             const openModal = (modalEl) => {
                 modalEl.classList.remove('hidden');
                 setTimeout(() => { modalEl.classList.remove('opacity-0'); modalEl.querySelector('.modal-content').classList.remove('scale-95'); }, 10);
@@ -1925,6 +1928,10 @@
             document.getElementById('open-history-btn').addEventListener('click', () => openModal(historyModal));
             document.getElementById('close-history-modal-btn').addEventListener('click', () => closeModal(historyModal));
             historyModal.addEventListener('click', (e) => { if(e.target === historyModal) closeModal(historyModal); });
+
+            document.getElementById('open-settings-btn').addEventListener('click', () => openModal(settingsModal));
+            document.getElementById('close-settings-modal-btn').addEventListener('click', () => closeModal(settingsModal));
+            settingsModal.addEventListener('click', (e) => { if(e.target === settingsModal) closeModal(settingsModal); });
 
             let calculationHistory = JSON.parse(localStorage.getItem('calculationHistory')) || [];
             const historyContainer = document.getElementById('calculation-history');
