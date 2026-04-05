@@ -2,10 +2,12 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- Web App Manifest and PWA Tags -->
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
     <link rel="apple-touch-icon" href="icon-192.png">
     <meta name="mobile-web-app-capable" content="yes">
     <!-- Mobile Web Optimization Tags -->
@@ -1547,9 +1549,9 @@
             const translations = {
                 en: {
                     appTitle: "Construction material estimator", globalSettings: "Global Settings", calcHistory: "Calculation History", noHistory: "No calculation history yet",
-                    wastageLabel: "General Material Wastage (%)", currencySymbol: "Currency", exchangeRateLabel: "100 USD to IQD Rate", projectsBtn: "Manage Projects", projectsTitle: "Manage Projects", saveBtn: "Save", noProjects: "No saved projects.", appDesigner: "Designed By Engineer Rezan Salih Noori",
+                    wastageLabel: "General Material Wastage (%)", currencySymbol: "Currency", exchangeRateLabel: "100 USD to IQD Rate", saveBtn: "Save", appDesigner: "Designed By Engineer Rezan Salih Noori",
                     tabConcrete: "Concrete", tabBlocks: "Blocks", tabBricks: "Bricks", tabSteel: "Steel", tabEarthwork: "Earth Work",
-                    errorTitle: "Error:", calculateBtn: "Calculate", resetBtn: "", deductOpenings: "Manage Openings", createProjectBtn: "Create",
+                    errorTitle: "Error:", calculateBtn: "Calculate", resetBtn: "Reset", deductOpenings: "Manage Openings",
                     concreteTitle: "Concrete Calculator", appType: "Concrete Element", mixRatio: "Mix Ratio", slabOption: "Slab / Foundation", columnOption: "Column", beamOption: "Beam",
                     dryVolumeFactor: "Dry Volume Factor", cementDensity: "Cement Density (kg/m³)", mortarMixRatio: "Mortar Mix Ratio (Cement:Sand)",
                     length: "Length (m)", width: "Width (m)", thickness: "Thickness / Depth (m)", height: "Height / Depth (m)", costCementBag: "Cost per Cement Bag", costSandM3: "Cost per m³ of Sand", costAggregateM3: "Cost per m³ of Aggregate",
@@ -1577,8 +1579,8 @@
                 },
                 ku: {
                     appTitle: "تخمينکەرێ کەرەستێن بیناسازی", globalSettings: "رێکخستنێن گشتی", calcHistory: "مێژوویا هەژمارکرنێ", noHistory: "هێشتا چ هەژمارکرن نینن",
-                    wastageLabel: "رێژا گشتی یا بەرهەدەرچوونێ (%)", currencySymbol: "دراڤ", exchangeRateLabel: "نرخێ ١٠٠$ بەرامبەر IQD", projectsBtn: "کارگێریا پروژا", projectsTitle: "رێکخستنا پروژا", saveBtn: "پاشکەفتکە", noProjects: "چ پروژێن پاشکەفتکری نینن.", appDesigner: "دیزاین ژلایێ ئەندازیار ڕێزان صالح نوری",
-                    tabConcrete: "کۆنکریت", tabBlocks: "بلۆک", tabBricks: "خشت", tabSteel: "شیش", tabEarthwork: "کارێ ئەردی", errorTitle: "خەلەتی:", calculateBtn: "هەژمار بکە", resetBtn: "", deductOpenings: "رێکخستنا ڤالاهیان", createProjectBtn: "دروستکرن",
+                    wastageLabel: "رێژا گشتی یا بەرهەدەرچوونێ (%)", currencySymbol: "دراڤ", exchangeRateLabel: "نرخێ ١٠٠$ بەرامبەر IQD", saveBtn: "پاشکەفتکە", appDesigner: "دیزاین ژلایێ ئەندازیار ڕێزان صالح نوری",
+                    tabConcrete: "کۆنکریت", tabBlocks: "بلۆک", tabBricks: "خشت", tabSteel: "شیش", tabEarthwork: "کارێ ئەردی", errorTitle: "خەلەتی:", calculateBtn: "هەژمار بکە", resetBtn: "پاککرن", deductOpenings: "رێکخستنا ڤالاهیان",
                     concreteTitle: "هەژمارکەرێ کۆنکریتی", appType: "جورێ ئەندامێ کۆنکریتى", mixRatio: "رێژا تێکەلیێ", slabOption: "ئەرد / بناغە", columnOption: "ستوین", beamOption: "جسر", dryVolumeFactor: "فاکتەرێ قەبارێ هشک", cementDensity: "چڕیا چیمەنتوی (کگم/م³)", mortarMixRatio: "رێژا تێکەلا خەلتەی (چیمەنتو:قوم)", length: "درێژی (م)", width: "پانی (م)", thickness: "ستووری / قووڵی (م)", height: "بلندی / قووڵی (م)", costCementBag: "بهایێ کیسێ چیمەنتوی", costSandM3: "بهایێ م³ قوم", costAggregateM3: "بهایێ م³ حەسو", numberOfElements: "ژمارا ئەندامان (ستوین/جسر)",
                     blocksTitle: "هەژمارکەرێ بلۆکێن چیمەنتوی", calcMode: "هەژمارکرن ب رێکا", byDimensions: "ب رێکا پیڤانا دیوارى", blockType: "جورێ بلۆکێ", wallWidth: "پانییا دیوارى (م)", wallLength: "درێژیا دیوارى (م)", wallHeight: "بلندیا دیوارى (م)", blockLength: "درێژی (سم)", blockWidth: "پانی (سم)", blockHeight: "بلندی (سم)", solidBlock20: "تژی (٤٠×٢٠×٢٠سم)", solidBlock15: "تژی (٤٠×٢٠×١٥سم)", hollowBlock: "فالە (٤٠×٢٠×٢٠سم)", lightweightBlock: "سڤك (٦٠×٢٠×١٠سم)", costPerBlock: "بهایێ هەر بلۆکەکێ", mortarCementCost: "بهایێ چیمەنتویێ خەلتەی/کیسەك", mortarSandCost: "بهایێ قوما خەلتەی/م³",
                     bricksTitle: "هەژمارکەرێ خشت", brickType: "جورێ خشتى", standardBrick: "ستاندەرد (٢١٥×١٠٢.٥×٦٥مم)", engineeringBrick: "ئەندازیاری (٢١٥×١٠٢.٥×٧٣مم)", romanBrick: "رومانی (٢٩٠×٩٠×٤٠مم)", hollowBrick: "خشتێ فالە (٣٠×١٢×١٢ سم)", localBrick: "خشتێ عيراقى (٢٣×١١×٧سم)", brickLength: "درێژی (مم)", brickWidth: "پانی (مم)", brickHeight: "بلندی (مم)", mortarThickness: "ستوورییا خەلتەی (سم)", costPerBrick: "بهایێ هەر خشتەکێ",
@@ -1593,8 +1595,8 @@
                 },
                 ks: {
                     appTitle: "خەمڵێنەری کەرەستەی بیناسازی", globalSettings: "ڕێکخستنە گشتییەکان", calcHistory: "مێژووی ئەژمارکردنەکان", noHistory: "هیچ مێژوویەکی ئەژمارکردن نییە",
-                    wastageLabel: "ڕێژەی گشتیی بەفیڕۆچوون (%)", currencySymbol: "دراو", exchangeRateLabel: "نرخی ١٠٠ دۆلار بەرامبەر دینار", projectsBtn: "بەڕێوەبردنی پڕۆژەکان", projectsTitle: "بەڕێوەبردنی پڕۆژەکان", saveBtn: "پاشەکەوت", noProjects: "هیچ پڕۆژەیەکی پاشەکەوتکراو نییە.", appDesigner: "دیزاین لەلایەن ئەندازیار ڕێزان ساڵح نووری",
-                    tabConcrete: "کۆنکریت", tabBlocks: "بلۆک", tabBricks: "خشت", tabSteel: "شیش", tabEarthwork: "کاری زەوی", errorTitle: "هەڵە:", calculateBtn: "ئەژمار بکە", resetBtn: "", deductOpenings: "بەڕێوەبردنی کراوەکان", createProjectBtn: "دروستکردن",
+                    wastageLabel: "ڕێژەی گشتیی بەفیڕۆچوون (%)", currencySymbol: "دراو", exchangeRateLabel: "نرخی ١٠٠ دۆلار بەرامبەر دینار", saveBtn: "پاشەکەوت", appDesigner: "دیزاین لەلایەن ئەندازیار ڕێزان ساڵح نووری",
+                    tabConcrete: "کۆنکریت", tabBlocks: "بلۆک", tabBricks: "خشت", tabSteel: "شیش", tabEarthwork: "کاری زەوی", errorTitle: "هەڵە:", calculateBtn: "ئەژمار بکە", resetBtn: "پاککردنەوە", deductOpenings: "بەڕێوەبردنی کراوەکان",
                     concreteTitle: "ئەژمارکەری کۆنکریت", appType: "جۆری ئەندامی کۆنکریتی", mixRatio: "ڕێژەی تێکەڵە", slabOption: "تەختە / بناغە", columnOption: "ستوون", beamOption: "جسر", dryVolumeFactor: "فاکتەری قەبارەی وشک", cementDensity: "چڕی چیمەنتۆ (کگم/م³)", mortarMixRatio: "ڕێژەی تێکەڵەی گیراوە (چیمەنتۆ:لم)", length: "درێژی (م)", width: "پانی (م)", thickness: "ئەستووری / قووڵی (م)", height: "بەرزی / قووڵی (م)", costCementBag: "تێچووی یەک کیسە چیمەنتۆ", costSandM3: "تێچووی م³ لم", costAggregateM3: "تێچووی م³ چەو", numberOfElements: "ژمارەی ئەندامەکان (ستوون/جسر)",
                     blocksTitle: "ئەژمارکەری بلۆکی چیمەنتۆ", calcMode: "ئەژمارکردن بەپێی", byDimensions: "بەپێی پێوانەکانی دیوار", blockType: "جۆری بلۆک", wallWidth: "پانی دیوار (م)", wallLength: "درێژی دیوار (م)", wallHeight: "بەرزی دیوار (م)", blockLength: "درێژی (سم)", blockWidth: "پانی (سم)", blockHeight: "بەرزی (سم)", solidBlock20: "تۆکمە (٤٠×٢٠×٢٠سم)", solidBlock15: "تۆکمە (٤٠×٢٠×١٥سم)", hollowBlock: "بۆش (٤٠×٢٠×٢٠سم)", lightweightBlock: "کێش سووک (٦٠×٢٠×١٠سم)", costPerBlock: "تێچووی هەر بلۆکێک", mortarCementCost: "تێچووی چیمەنتۆی گیراوە/کیسە", mortarSandCost: "تێچووی لمی گیراوە/م³",
                     bricksTitle: "ئەژمارکەری خشت", brickType: "جۆری خشت", standardBrick: "ستاندارد (٢١٥×١٠٢.٥×٦٥مم)", engineeringBrick: "ئەندازیاری (٢١٥×١٠٢.٥×٧٣مم)", romanBrick: "ڕۆمانی (٢٩٠×٩٠×٤٠مم)", hollowBrick: "خشتی بۆش (٣٠×١٢×١٢ سم)", localBrick: "خشتی عێراقی (٢٣×١١×٧سم)", brickLength: "درێژی (مم)", brickWidth: "پانی (مم)", brickHeight: "بەرزی (مم)", mortarThickness: "ئەستووری گیراوە (سم)", costPerBrick: "تێچووی هەر خشتێک",
@@ -1609,8 +1611,8 @@
                 },
                 ar: {
                     appTitle: "مُقدّر المواد الإنشائية", globalSettings: "الإعدادات العامة", calcHistory: "سجل الحسابات", noHistory: "لا توجد حسابات سابقة بعد",
-                    wastageLabel: "نسبة الهدر العامة للمواد (%)", currencySymbol: "العملة", exchangeRateLabel: "سعر صرف 100$ إلى دينار", projectsBtn: "إدارة المشاريع", projectsTitle: "إدارة المشاريع", saveBtn: "حفظ", noProjects: "لا توجد مشاريع محفوظة.", appDesigner: "تصميم المهندس ريزان صالح نوري",
-                    tabConcrete: "الخرسانة", tabBlocks: "البلوك", tabBricks: "الطابوق", tabSteel: "الحديد", tabEarthwork: "أعمال الحفر", errorTitle: "خطأ:", calculateBtn: "احسب", resetBtn: "", deductOpenings: "إدارة الفتحات", createProjectBtn: "إنشاء",
+                    wastageLabel: "نسبة الهدر العامة للمواد (%)", currencySymbol: "العملة", exchangeRateLabel: "سعر صرف 100$ إلى دينار", saveBtn: "حفظ", appDesigner: "تصميم المهندس ريزان صالح نوري",
+                    tabConcrete: "الخرسانة", tabBlocks: "البلوك", tabBricks: "الطابوق", tabSteel: "الحديد", tabEarthwork: "أعمال الحفر", errorTitle: "خطأ:", calculateBtn: "احسب", resetBtn: "إعادة ضبط", deductOpenings: "إدارة الفتحات",
                     concreteTitle: "حاسبة الخرسانة", appType: "نوع العنصر الخرساني", mixRatio: "نسبة الخلط", slabOption: "بلاطة / أساس", columnOption: "عمود", beamOption: "جسر", dryVolumeFactor: "معامل الحجم الجاف", cementDensity: "كثافة الإسمنت (كجم/م³)", mortarMixRatio: "نسبة خلط المونة (اسمنت:رمل)", length: "الطول (م)", width: "العرض (م)", thickness: "السماكة / العمق (م)", height: "الارتفاع / العمق (م)", costCementBag: "تكلفة كيس الإسمنت", costSandM3: "تكلفة م³ من الرمل", costAggregateM3: "تكلفة م³ من الحصى", numberOfElements: "عدد العناصر (أعمدة/جسور)",
                     blocksTitle: "حاسبة بلوك الإسمنت", calcMode: "الحساب بواسطة", byDimensions: "باستخدام أبعاد الجدار", blockType: "نوع البلوك", wallWidth: "عرض الجدار (م)", wallLength: "طول الجدار (م)", wallHeight: "ارتفاع الجدار (م)", blockLength: "الطول (سم)", blockWidth: "العرض (سم)", blockHeight: "الارتفاع (سم)", solidBlock20: "مصمت (٤٠×٢٠×٢٠ سم)", solidBlock15: "مصمت (٤٠×٢٠×١٥ سم)", hollowBlock: "مفرغ (٤٠×٢٠×٢٠ سم)", lightweightBlock: "خفيف الوزن (٦٠×٢٠×١٠ سم)", costPerBlock: "تكلفة البلوك الواحد", mortarCementCost: "تكلفة إسمنت المونة/كيس", mortarSandCost: "تكلفة رمل المونة/م³",
                     bricksTitle: "حاسبة الطابوق", brickType: "نوع الطابوق", standardBrick: "قياسي (٢١٥×١٠٢.٥×٦٥ مم)", engineeringBrick: "هندسي (٢١٥×١٠٢.٥×٧٣ مم)", romanBrick: "روماني (٢٩٠×٩٠×٤٠ مم)", hollowBrick: "طابوق مفرغ (٣٠×١٢×١٢ سم)", localBrick: "طابوق عراقي (٢٣×١١×٧ سم)", brickLength: "الطول (مم)", brickWidth: "الارتفاع (مم)", brickHeight: "الارتفاع (مم)", mortarThickness: "سماكة المونة (سم)", costPerBrick: "تكلفة الطابوقة الواحدة",
@@ -2094,6 +2096,11 @@
                     </div>`;
                 window.print();
             };
+
+            window.addEventListener('afterprint', () => {
+                const printArea = document.getElementById('print-area');
+                if (printArea) printArea.innerHTML = '';
+            });
 
             const exportToCSV = async (resultCard) => {
                 const title = resultCard.querySelector('h3').textContent.trim();
