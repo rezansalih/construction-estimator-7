@@ -1,4 +1,4 @@
-const CACHE_NAME = 'estimator-v4';
+const CACHE_NAME = 'estimator-v5';
 
 // We will cache index.html, icons and also cache the external CDN resources so the app works offline.
 const urlsToCache = [
@@ -45,41 +45,39 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
+  // Only handle GET requests
+  if (event.request.method !== 'GET') return;
+
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
+    caches.match(event.request).then(cachedResponse => {
+      // 1. Always attempt a network fetch to get the freshest data
+      const networkFetch = fetch(event.request).then(response => {
+        // Ensure the response is valid before caching
+        if (response && (response.status === 200 || response.type === 'opaque')) {
+          const url = event.request.url;
+          const isAppResource = url.startsWith(self.location.origin);
+          const isDynamicCache = dynamicCacheUrls.some(cacheStr => url.includes(cacheStr));
 
-        return fetch(event.request).then(
-          response => {
-            // Check if we received a valid response
-            // CDNs often return 'opaque' responses (status 0) when requested without CORS headers.
-            if(!response || (response.status !== 200 && response.type !== 'opaque')) {
-              return response;
-            }
-
-            // Check if it's an external library we want to cache (Tailwind, Fonts, Icons)
-            const url = event.request.url;
-            const shouldCacheDynamically = dynamicCacheUrls.some(cacheStr => url.includes(cacheStr));
-
-            if (shouldCacheDynamically) {
-              const responseToCache = response.clone();
-              caches.open(CACHE_NAME)
-                .then(cache => {
-                  cache.put(event.request, responseToCache);
-                });
-            }
-
-            return response;
+          // If it's one of our app files or an allowed CDN file, cache it silently
+          if (isAppResource || isDynamicCache) {
+            const responseClone = response.clone();
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, responseClone);
+            });
           }
-        ).catch(() => {
-          // If fetch fails and nothing is in cache (e.g. completely offline and navigating to a new page)
-          // We can return offline fallback if we wanted.
-          console.warn("Network request failed and not in cache: ", event.request.url);
-        });
-      })
+        }
+        return response;
+      }).catch(err => {
+        console.warn('Network request failed, relying on cache.', event.request.url);
+      });
+
+      // 2. Keep the worker alive until the background fetch/cache update is complete
+      if (cachedResponse) {
+        event.waitUntil(networkFetch);
+      }
+
+      // 3. Instantly return the cached version if we have it, otherwise wait for the network
+      return cachedResponse || networkFetch;
+    })
   );
 });
